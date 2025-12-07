@@ -130,6 +130,39 @@ HOW THE PIPELINE WORKS
   └──────────┘  └──────────────┘
 
 ================================================================================
+ENVIRONMENT VARIABLES IN VERCEL
+================================================================================
+
+You can add environment variables to your Vercel project in two ways:
+
+METHOD 1: While Importing from GitHub (Initial Setup)
+-----------------------------------------------------
+When you first import your GitHub repo to Vercel:
+  1. Click "Import" on your GitHub repository
+  2. Before clicking "Deploy", expand "Environment Variables" section
+  3. Add your variables:
+     - NAME: REACT_APP_API_URL
+     - VALUE: https://your-backend-api.com
+  4. Click "Add" for each variable
+  5. Then click "Deploy"
+
+METHOD 2: After Project is Created (Anytime)
+--------------------------------------------
+  1. Go to Vercel Dashboard → Select your project
+  2. Settings → Environment Variables
+  3. Add variables with:
+     - Key: Variable name (e.g., REACT_APP_API_URL)
+     - Value: Variable value
+     - Environment: Production / Preview / Development (or all)
+  4. Click "Save"
+  5. Redeploy for changes to take effect
+
+IMPORTANT FOR REACT APPS:
+  - Environment variables MUST start with REACT_APP_ prefix
+  - Example: REACT_APP_API_URL, REACT_APP_GOOGLE_CLIENT_ID
+  - Variables without this prefix won't be accessible in your React code
+
+================================================================================
 IMPORTANT NOTES
 ================================================================================
 
@@ -144,6 +177,10 @@ IMPORTANT NOTES
 3. Workflow triggers on:
    - Push to main/master branch → Runs tests + deploys if pass
    - Pull requests → Runs tests only (no deployment)
+
+4. Environment variables (.env files) should be in .gitignore
+   - Never commit secrets to GitHub
+   - Add them directly in Vercel dashboard instead
 
 ================================================================================
 FILES INVOLVED
