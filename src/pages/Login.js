@@ -74,7 +74,7 @@ const Login = () => {
               <AuthIconText variant="h3">🏥</AuthIconText>
             </AuthIconBox>
             <AuthTitle variant="h4">
-              Welcome Back 123
+              Welcome Back 12345
             </AuthTitle>
             <Typography variant="body2" color="text.secondary">
               Sign in to access your healthcare dashboard
