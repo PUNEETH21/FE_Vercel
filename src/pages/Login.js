@@ -74,10 +74,10 @@ const Login = () => {
               <AuthIconText variant="h3">🏥</AuthIconText>
             </AuthIconBox>
             <AuthTitle variant="h4">
-              Welcome Back
+              Welcome Bac
             </AuthTitle>
             <Typography variant="body2" color="text.secondary">
-              Sign in to access your healthcare dashboard ok.
+              Sign in to access your healthcare dashboard ok1.
             </Typography>
           </AuthHeaderBox>
           <Box component="form" onSubmit={handleSubmit}>
