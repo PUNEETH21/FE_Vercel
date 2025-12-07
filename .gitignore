@@ -51,3 +51,4 @@ Desktop.ini
 # PDF files (if you want to exclude the original PDF)
 # *.pdf
 
+.vercel
