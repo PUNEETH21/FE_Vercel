@@ -178,6 +178,31 @@ IMPORTANT NOTES
    - Push to main/master branch → Runs tests + deploys if pass
    - Pull requests → Runs tests only (no deployment)
 
+================================================================================
+OPTIMIZATION: CONCURRENCY CONTROL
+================================================================================
+
+Problem: Multiple quick commits trigger multiple pipeline runs (wasteful!)
+
+Solution: Add concurrency config to cancel old runs when new commit arrives:
+
+  concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+How it works:
+  - Commit 1 pushed → Pipeline starts
+  - Commit 2 pushed (while #1 running) → Pipeline #1 CANCELLED, Pipeline #2 starts
+  - Only the LATEST commit gets fully tested and deployed
+
+This saves:
+  - GitHub Actions minutes (free tier has limits)
+  - Time (don't wait for outdated builds)
+  - Vercel deployments (avoid deploying old code)
+
+You can also skip CI entirely with commit message:
+  git commit -m "Update README [skip ci]"
+
 4. Environment variables (.env files) should be in .gitignore
    - Never commit secrets to GitHub
    - Add them directly in Vercel dashboard instead

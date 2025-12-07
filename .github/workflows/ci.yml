@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main, master]
 
+# Cancel in-progress runs when a new commit is pushed
+# This prevents wasting resources on outdated commits
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Run Tests
