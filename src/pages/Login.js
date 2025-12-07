@@ -77,7 +77,7 @@ const Login = () => {
               Welcome Back
             </AuthTitle>
             <Typography variant="body2" color="text.secondary">
-              Sign in to access your healthcare dashboard 67
+              Sign in to access your healthcare dashboard 671
             </Typography>
           </AuthHeaderBox>
           <Box component="form" onSubmit={handleSubmit}>
