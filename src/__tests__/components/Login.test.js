@@ -49,7 +49,7 @@ describe('Login Component', () => {
   it('should render login form', () => {
     renderWithProviders(<Login />);
 
-    expect(screen.getByText('Welcome Back dg')).toBeInTheDocument();
+    expect(screen.getByText('Welcome Back')).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
